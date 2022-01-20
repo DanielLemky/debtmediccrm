@@ -1,0 +1,2 @@
+class ClientProposal < ApplicationRecord
+end
