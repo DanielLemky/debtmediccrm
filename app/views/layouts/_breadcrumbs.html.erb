@@ -1,0 +1,11 @@
+<% if breadcrumbs.present? %>
+  <div class="mb-4">
+    <% breadcrumbs.each do |breadcrumb_name, breadcrumb_path| %>
+      <% if breadcrumb_path.nil? %>
+        <span class="font-bold"><%= breadcrumb_name %></span>
+      <% else %>
+        <%= link_to breadcrumb_name, breadcrumb_path, class: "text-green-500" %> /
+      <% end %>
+    <% end %>
+  </div>
+<% end %>
