@@ -4,6 +4,8 @@ class User < ApplicationRecord
   devise :database_authenticatable, :registerable,
          :recoverable, :rememberable, :validatable
 
+  has_many :proposals
+
   enum role:{ administrator: "administrator", supervisor: "supervisor", agent: "agent" }
 
   after_initialize :set_default_role, :if => :new_record?
