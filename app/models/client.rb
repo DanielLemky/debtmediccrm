@@ -6,5 +6,6 @@ class Client < ApplicationRecord
   has_one :current_address
   has_one :identification
   has_many :employments
+  has_many :family_members
   enum role:{ primary: "primary", secondary: "secondary" }
 end

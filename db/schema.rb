@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2022_01_20_031304) do
+ActiveRecord::Schema.define(version: 2022_01_20_032317) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -51,6 +51,40 @@ ActiveRecord::Schema.define(version: 2022_01_20_031304) do
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
     t.index ["client_id"], name: "index_current_addresses_on_client_id"
+  end
+
+  create_table "employments", force: :cascade do |t|
+    t.bigint "client_id"
+    t.string "employment_type"
+    t.string "employer"
+    t.string "address_1"
+    t.string "address_2"
+    t.string "city"
+    t.string "province"
+    t.string "position"
+    t.date "start_date"
+    t.date "end_date"
+    t.boolean "current"
+    t.datetime "created_at", precision: 6, null: false
+    t.datetime "updated_at", precision: 6, null: false
+    t.index ["client_id"], name: "index_employments_on_client_id"
+  end
+
+  create_table "family_members", force: :cascade do |t|
+    t.bigint "client_id"
+    t.string "first_name"
+    t.string "last_name"
+    t.integer "relationship"
+    t.string "address_1"
+    t.string "address_2"
+    t.string "city"
+    t.string "province"
+    t.string "postal_code"
+    t.date "date_of_birth"
+    t.string "income"
+    t.datetime "created_at", precision: 6, null: false
+    t.datetime "updated_at", precision: 6, null: false
+    t.index ["client_id"], name: "index_family_members_on_client_id"
   end
 
   create_table "identifications", force: :cascade do |t|
