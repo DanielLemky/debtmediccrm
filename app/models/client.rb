@@ -8,5 +8,6 @@ class Client < ApplicationRecord
   has_many :employments
   has_many :family_members
   has_many :businesses
+  has_many :business_debts, through: :businesses
   enum role:{ primary: "primary", secondary: "secondary" }
 end
