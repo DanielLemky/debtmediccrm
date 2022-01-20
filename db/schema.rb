@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2022_01_20_032317) do
+ActiveRecord::Schema.define(version: 2022_01_20_032449) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -21,6 +21,26 @@ ActiveRecord::Schema.define(version: 2022_01_20_032317) do
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
     t.index ["client_id"], name: "index_aliases_on_client_id"
+  end
+
+  create_table "businesses", force: :cascade do |t|
+    t.bigint "client_id"
+    t.string "name"
+    t.string "business_type"
+    t.string "address_1"
+    t.string "address_2"
+    t.string "city"
+    t.string "province"
+    t.string "structure"
+    t.string "loans_guaranteed"
+    t.text "details"
+    t.string "location_of_records"
+    t.date "last_financial_statement"
+    t.string "year_end"
+    t.integer "share_percentage"
+    t.datetime "created_at", precision: 6, null: false
+    t.datetime "updated_at", precision: 6, null: false
+    t.index ["client_id"], name: "index_businesses_on_client_id"
   end
 
   create_table "client_proposals", force: :cascade do |t|
