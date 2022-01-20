@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2022_01_20_030512) do
+ActiveRecord::Schema.define(version: 2022_01_20_030918) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -38,6 +38,28 @@ ActiveRecord::Schema.define(version: 2022_01_20_030512) do
     t.string "email"
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
+  end
+
+  create_table "current_addresses", force: :cascade do |t|
+    t.bigint "client_id"
+    t.string "address_1"
+    t.string "address_2"
+    t.string "city"
+    t.string "province"
+    t.string "postal_code"
+    t.string "time_at_address"
+    t.datetime "created_at", precision: 6, null: false
+    t.datetime "updated_at", precision: 6, null: false
+    t.index ["client_id"], name: "index_current_addresses_on_client_id"
+  end
+
+  create_table "phone_numbers", force: :cascade do |t|
+    t.string "number"
+    t.integer "number_type"
+    t.bigint "client_id"
+    t.datetime "created_at", precision: 6, null: false
+    t.datetime "updated_at", precision: 6, null: false
+    t.index ["client_id"], name: "index_phone_numbers_on_client_id"
   end
 
   create_table "proposals", force: :cascade do |t|
