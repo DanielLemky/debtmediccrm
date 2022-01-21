@@ -4,5 +4,9 @@ Rails.application.routes.draw do
 
   # Defines the root path route ("/")
   root "clients#index"
-  resources :clients
+  scope module: 'clients' do
+    resources :clients do
+      resources :phone_numbers
+    end
+  end
 end
