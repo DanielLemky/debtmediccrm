@@ -1,0 +1,29 @@
+<div class="bg-white border border-slate-300 rounded py-2 px-4">
+  <h2 class="font-bold text-lg mb-2">Proposal Status</h2>
+  <ul>
+    <li class="text-sm py-1">✅ Contact Details</li>
+    <li class="text-sm py-1">
+      <% if @client.current_address.present? %>✅ <% else %>⬜️ <% end %>
+      Current Address
+    </li>
+    <li class="text-sm py-1">
+      <% if @client.phone_numbers.any? %>✅ <% else %>⬜️ <% end %>
+      <%= link_to "Phone Numbers", client_phone_numbers_path(@client), class: "py-1 text-green-500 underline" %></li>
+    <li class="text-sm py-1">
+      <% if @client.personal_detail.present? %>✅ <% else %>⬜️ <% end %>
+      Personal Details
+    </li>
+    <li class="text-sm py-1">
+      <% if @client.identification.present? %>✅ <% else %>⬜️ <% end %>
+      Identification
+    </li>
+    <li class="text-sm py-1">
+      <% if @client.employments.any? %>✅ <% else %>⬜️ <% end %>
+      Employment
+    </li>
+    <li class="text-sm py-1">
+      <% if @client.family_members.any? %>✅ <% else %>⬜️ <% end %>
+      Family Members
+    </li>
+  </ul>
+</div>
