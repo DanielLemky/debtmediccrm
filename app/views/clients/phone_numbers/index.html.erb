@@ -1,0 +1,25 @@
+<%= render partial: 'layouts/breadcrumbs', locals: { breadcrumbs: @breadcrumbs } %>
+
+<h1 class="font-bold text-3xl mb-4"><%= @client.first_name %> <%= @client.last_name %></h1>
+<div class="grid grid-cols-5 gap-4">
+  <div class="col-span-4">
+    <div class="bg-white border border-slate-300 rounded py-2 px-4 mb-4">
+      <div class="flex">
+      </div>
+        <% @phone_numbers.each do |phone_number| %>
+          <%= turbo_frame_tag phone_number, class: "grid grid-cols-3" do %>
+            <div class="py-2 px-3">
+              <%= phone_number.number_type %>
+            </div>
+            <div class="py-2 px-3">
+              <%= phone_number.number %>
+            </div>
+            <div class="py-2 px-3 text-right">
+              <%= link_to 'Edit', edit_client_phone_number_path(@client, phone_number), class: "text-sm border border-slate-300 text-slate-500 rounded py-2 px-3 box-content" %>
+            </div>
+          <% end %>
+        <% end  %>
+    </div>
+  </div>
+  <%= render partial: "clients/clients/proposal_status" %>
+</div>

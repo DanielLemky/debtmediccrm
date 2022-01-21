@@ -1,0 +1,15 @@
+<%= turbo_frame_tag @phone_number do %>
+  <%= form_with model: @phone_number, url: client_phone_number_path(@phone_number.client, @phone_number) do |form| %>
+    <div class="grid grid-cols-3">
+      <div>
+        <%= form.text_field :number_type, class: "border-none focus:outline-none focus:ring-transparent focus:text-green-500" %>
+      </div>
+      <div>
+        <%= form.text_field :number, class: "border-none focus:outline-none focus:ring-transparent focus:text-green-500" %>
+      </div>
+      <div class="text-right">
+        <%= form.submit "Update", class: "text-sm border border-slate-300 text-slate-500 rounded py-2 px-3 box-content" %>
+      </div>
+    </div>
+  <% end %>
+<% end %>
