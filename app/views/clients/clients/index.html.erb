@@ -2,9 +2,9 @@
 
 <div class="max-w-2xl bg-white py-4 px-4 rounded border border-slate-300">
   <div class="grid grid-cols-3 bg-slate-300">
-      <div class="py-2 bg-white mb-[0.5px] text-sm">Name</div>
-      <div class="py-2 bg-white mb-[0.5px] text-sm">Email</div>
-      <div class="py-2 bg-white mb-[0.5px] text-sm"></div>
+    <div class="py-2 bg-white mb-[0.5px] text-sm">Name</div>
+    <div class="py-2 bg-white mb-[0.5px] text-sm">Email</div>
+    <div class="py-2 bg-white mb-[0.5px] text-sm"></div>
     <% @clients.each do |client| %>
       <div class="py-2 bg-white my-[0.5px] text-sm"><%= link_to "#{client.first_name} #{client.last_name}", client, class: "text-green-600" %></div>
       <div class="py-2 bg-white my-[0.5px] text-sm"><%= client.email %></div>

@@ -1,5 +1,4 @@
-class ClientsController < ApplicationController
-
+class Clients::ClientsController < ApplicationController
   def index
     @clients = Client.all
     @breadcrumbs = { Clients: nil }
