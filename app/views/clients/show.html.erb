@@ -1,1 +1,19 @@
 <%= render partial: 'layouts/breadcrumbs', locals: { breadcrumbs: @breadcrumbs } %>
+
+<h1 class="font-bold text-3xl mb-4"><%= @client.first_name %> <%= @client.last_name %></h1>
+<div class="grid grid-cols-5 gap-4">
+  <div class="col-span-4">
+    <div class="bg-white border border-slate-300 rounded py-2 px-4 mb-4">
+      <div class="flex">
+        <h2 class="font-bold text-lg mb-2">Proposal</h2>
+      </div>
+    </div>
+    <div class="bg-white border border-slate-300 rounded py-2 px-4">
+      <div class="flex justify-between">
+        <h2 class="font-bold text-lg mb-2">Notes</h2>
+        <span class="text-sm border border-slate-300 text-slate-500 rounded py-2 px-3 box-content">Add Note</span>
+      </div>
+    </div>
+  </div>
+  <%= render partial: "nav" %>
+</div>
