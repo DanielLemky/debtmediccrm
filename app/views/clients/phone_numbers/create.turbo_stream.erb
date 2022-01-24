@@ -1,0 +1,7 @@
+<%= turbo_stream.append 'phone_numbers' do %>
+  <%= render partial: 'phone_number', locals: { phone_number: @phone_number } %>
+<% end %>
+
+<%= turbo_stream.update 'new_phone_number' do %>
+  <%= link_to 'Add Phone Number', new_client_phone_number_path(@client) %>
+<% end %>
