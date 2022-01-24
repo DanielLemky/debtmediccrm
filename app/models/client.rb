@@ -3,7 +3,7 @@ class Client < ApplicationRecord
   has_one :alias
   has_one :personal_detail
   has_many :phone_numbers
-  has_one :current_address
+  has_many :addresses
   has_one :identification
   has_many :employments
   has_many :family_members

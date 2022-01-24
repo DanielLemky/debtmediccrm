@@ -1,0 +1,7 @@
+<%= turbo_stream.append 'addresses' do %>
+  <%= render partial: 'address', locals: { address: @address } %>
+<% end %>
+
+<%= turbo_stream.update 'new_address' do %>
+  <%= link_to 'Add Address', new_client_address_path(@client) %>
+<% end %>

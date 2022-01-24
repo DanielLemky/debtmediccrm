@@ -3,8 +3,8 @@
   <ul>
     <li class="text-sm py-1">✅ Contact Details</li>
     <li class="text-sm py-1">
-      <% if @client.current_address.present? %>✅ <% else %>⬜️ <% end %>
-      Current Address
+      <% if @client.addresses.current.present? and @client.addresses.past.any? %>✅ <% else %>⬜️ <% end %>
+      <%= link_to "Addresses", client_addresses_path(@client), class: "py-1 text-green-500 underline" %>
     </li>
     <li class="text-sm py-1">
       <% if @client.phone_numbers.any? %>✅ <% else %>⬜️ <% end %>
