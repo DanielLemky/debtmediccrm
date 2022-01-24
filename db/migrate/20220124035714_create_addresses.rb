@@ -1,7 +1,8 @@
-class CreateCurrentAddresses < ActiveRecord::Migration[7.0]
+class CreateAddresses < ActiveRecord::Migration[7.0]
   def change
-    create_table :current_addresses do |t|
+    create_table :addresses do |t|
       t.belongs_to :client
+      t.string :address_type
       t.string :address_1
       t.string :address_2
       t.string :city
