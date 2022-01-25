@@ -146,7 +146,7 @@ ActiveRecord::Schema.define(version: 2022_01_24_172030) do
 
   create_table "phone_numbers", force: :cascade do |t|
     t.string "number"
-    t.integer "number_type"
+    t.string "number_type"
     t.bigint "client_id"
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
