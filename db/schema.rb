@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2022_01_24_035714) do
+ActiveRecord::Schema.define(version: 2022_01_24_172030) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -79,19 +79,6 @@ ActiveRecord::Schema.define(version: 2022_01_24_035714) do
     t.datetime "updated_at", precision: 6, null: false
   end
 
-  create_table "current_addresses", force: :cascade do |t|
-    t.bigint "client_id"
-    t.string "address_1"
-    t.string "address_2"
-    t.string "city"
-    t.string "province"
-    t.string "postal_code"
-    t.string "time_at_address"
-    t.datetime "created_at", precision: 6, null: false
-    t.datetime "updated_at", precision: 6, null: false
-    t.index ["client_id"], name: "index_current_addresses_on_client_id"
-  end
-
   create_table "employment_insurance_claims", force: :cascade do |t|
     t.bigint "client_id"
     t.date "start_date"
@@ -138,8 +125,9 @@ ActiveRecord::Schema.define(version: 2022_01_24_035714) do
 
   create_table "identifications", force: :cascade do |t|
     t.bigint "client_id"
-    t.string "drivers_license"
-    t.string "social_insurance_number"
+    t.string "id_type"
+    t.string "number"
+    t.date "expiry_date"
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
     t.index ["client_id"], name: "index_identifications_on_client_id"

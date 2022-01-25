@@ -4,7 +4,7 @@ class Client < ApplicationRecord
   has_one :personal_detail
   has_many :phone_numbers
   has_many :addresses
-  has_one :identification
+  has_many :identifications
   has_many :employments
   has_many :family_members
   has_many :businesses
