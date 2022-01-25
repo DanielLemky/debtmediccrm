@@ -3,5 +3,7 @@
 <% end %>
 
 <%= turbo_stream.update 'new_phone_number' do %>
-  <%= link_to 'Add Phone Number', new_client_phone_number_path(@client) %>
+  <div class="bg-white border border-slate-300 rounded py-2 px-4 mb-4">
+    <%= link_to 'Add Phone Number', new_client_phone_number_path(@client) %>
+  </div>
 <% end %>

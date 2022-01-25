@@ -7,7 +7,8 @@ class Clients::PhoneNumbersController < ApplicationController
 
   def edit
     @phone_number = PhoneNumber.find(params[:id])
-    render 'edit', phone_number: @phone_number
+    @path = client_phone_number_path(@phone_number.client, @phone_number)
+    render partial: 'form', phone_number: @phone_number, path: @path
   end
 
   def show
@@ -17,7 +18,8 @@ class Clients::PhoneNumbersController < ApplicationController
 
   def new
     @phone_number = Client.find(params[:client_id]).phone_numbers.build
-    render 'new', phone_number: @phone_number
+    @path = client_phone_numbers_path(@phone_number.client)
+    render partial: 'form', phone_number: @phone_number, path: @path
   end
 
   def create
@@ -29,7 +31,7 @@ class Clients::PhoneNumbersController < ApplicationController
   def update
     @phone_number = PhoneNumber.find(params[:id])
     if @phone_number.update(phone_number_params)
-      render 'show', phone_number: @phone_number
+      render partial: 'phone_number', locals: { phone_number: @phone_number }
     end
   end
 

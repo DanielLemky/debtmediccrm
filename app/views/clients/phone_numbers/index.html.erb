@@ -3,14 +3,12 @@
 <h1 class="font-bold text-2xl mb-4">Phone Numbers</h1>
 <div class="grid grid-cols-5 gap-4">
   <div class="col-span-4">
+    <%= turbo_frame_tag 'new_phone_number' do %>
+      <%= link_to 'Add Phone Number', new_client_phone_number_path(@client), class: "bg-white border border-slate-300 rounded block py-2 px-4 mb-4" %>
+    <% end  %>
     <%= turbo_frame_tag 'phone_numbers' do %>
       <%= render @phone_numbers %>
     <% end %>
-    <div class="bg-white border border-slate-300 rounded py-2 px-4 mb-4">
-      <%= turbo_frame_tag 'new_phone_number' do %>
-        <%= link_to 'Add Phone Number', new_client_phone_number_path(@client) %>
-      <% end  %>
-    </div>
   </div>
   <%= render partial: "clients/clients/proposal_status" %>
 </div>
