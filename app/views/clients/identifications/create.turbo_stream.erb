@@ -1,0 +1,9 @@
+<%= turbo_stream.append 'identifications' do %>
+  <%= render partial: 'identification', locals: { identification: @identification } %>
+<% end %>
+
+<%= turbo_stream.update 'new_identification' do %>
+  <div class="bg-white border border-slate-300 rounded py-2 px-4 mb-4">
+    <%= link_to 'Add Identification', new_client_identification_path(@client) %>
+  </div>
+<% end %>

@@ -14,8 +14,8 @@
       Personal Details
     </li>
     <li class="text-sm py-1">
-      <% if @client.identification.present? %>✅ <% else %>⬜️ <% end %>
-      Identification
+      <% if @client.identifications.drivers_license.any? and @client.identifications.sin.any? %>✅ <% else %>⬜️ <% end %>
+      <%= link_to 'Identification', client_identifications_path(@client), class: "py-1 text-green-500 underline" %>
     </li>
     <li class="text-sm py-1">
       <% if @client.employments.any? %>✅ <% else %>⬜️ <% end %>
