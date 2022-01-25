@@ -19,7 +19,7 @@
     </li>
     <li class="text-sm py-1">
       <% if @client.employments.any? %>✅ <% else %>⬜️ <% end %>
-      Employment
+      <%= link_to 'Employment', client_employments_path(@client), class: "py-1 text-green-500 underline" %>
     </li>
     <li class="text-sm py-1">
       <% if @client.family_members.any? %>✅ <% else %>⬜️ <% end %>

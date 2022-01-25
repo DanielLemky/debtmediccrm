@@ -1,0 +1,56 @@
+<%= turbo_frame_tag @employment do %>
+  <div class="bg-white border border-slate-300 rounded py-2 px-4 mb-4">
+    <%= form_with model: @employment, url: @path do |form| %>
+      <div class="my-2">
+        <p><label>Employer</label></p>
+        <%= form.text_field :employer, class: "border border-slate-300 rounded w-full" %>
+      </div>
+      <div class="flex gap-4">
+        <div class="my-2 grow">
+          <p><label>Position</label></p>
+          <%= form.text_field :position, class: "border border-slate-300 rounded w-full" %>
+        </div>
+        <div class="my-2">
+          <p><label>Employment Type</label></p>
+          <%= form.select :employment_type, [["Employed", :employed], ["Self-Employed", :self_employed]], {}, class: "border border-slate-300 rounded w-full" %>
+        </div>
+      </div>
+      <div class="my-2">
+        <p><label>Address 1</label></p>
+        <%= form.text_field :address_1, class: "border border-slate-300 rounded w-full" %>
+      </div>
+      <div class="my-2">
+        <p><label>Address 2</label></p>
+        <%= form.text_field :address_2, class: "border border-slate-300 rounded w-full" %>
+      </div>
+      <div class="flex gap-4">
+        <div class="my-2">
+          <p><label>City</label></p>
+          <%= form.text_field :city, class: "border border-slate-300 rounded" %>
+        </div>
+        <div class="my-2">
+          <p><label>Province</label></p>
+          <%= form.text_field :province, class: "border border-slate-300 rounded" %>
+        </div>
+        <div class="my-2">
+          <p><label>Currently Employed</label></p>
+          <%= form.check_box :current, class: "border border-slate-300 rounded" %>
+        </div>
+      </div>
+      <div class="flex gap-4">
+        <div class="my-2">
+          <p><label>Start Date</label></p>
+          <%= form.date_select :start_date, {}, class: "border border-slate-300 rounded" %>
+        </div>
+        <div class="my-2">
+          <p><label>End Date</label></p>
+          <%= form.date_select :end_date, {}, class: "border border-slate-300 rounded" %>
+        </div>
+      </div>
+      <div class="mt-4 mb-2">
+        <%= form.submit "Save", class: "text-sm border bg-green-100 text-green-700 border border-green-600 rounded py-2 px-3" %>
+        <%= "Cancel" %>
+      </div>
+    <% end %>
+  </div>
+<% end %>

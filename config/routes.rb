@@ -9,6 +9,7 @@ Rails.application.routes.draw do
       resources :addresses
       resources :phone_numbers
       resources :identifications
+      resources :employments
     end
   end
 end

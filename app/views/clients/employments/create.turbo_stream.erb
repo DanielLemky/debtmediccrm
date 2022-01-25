@@ -1,0 +1,9 @@
+<%= turbo_stream.append 'employments' do %>
+  <%= render partial: 'employment', locals: { employment: @employment } %>
+<% end %>
+
+<%= turbo_stream.update 'new_employment' do %>
+  <div class="bg-white border border-slate-300 rounded py-2 px-4 mb-4">
+    <%= link_to 'Add Employment', new_client_employment_path(@client) %>
+  </div>
+<% end %>
