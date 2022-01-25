@@ -3,5 +3,5 @@
 <% end %>
 
 <%= turbo_stream.update 'new_address' do %>
-  <%= link_to 'Add Address', new_client_address_path(@client) %>
+  <%= link_to 'Add Address', new_client_address_path(@client), class: "bg-white border border-slate-300 rounded py-2 px-4 mb-4 text-sm block" %>
 <% end %>

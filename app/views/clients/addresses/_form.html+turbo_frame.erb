@@ -1,6 +1,6 @@
 <%= turbo_frame_tag @address do %>
   <div class="bg-white border border-slate-300 rounded py-2 px-4 mb-4">
-    <%= form_with model: @address, url: client_address_path(@address.client, @address) do |form| %>
+    <%= form_with model: @address, url: @path do |form| %>
       <div class="my-2">
         <p><label>Address 1</label></p>
         <%= form.text_field :address_1, class: "border border-slate-300 rounded w-full" %>

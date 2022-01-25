@@ -8,12 +8,14 @@ class Clients::AddressesController < ApplicationController
 
   def new
     @address = Client.find(params[:client_id]).addresses.build
-    render 'new', address: @address
+    @path = client_addresses_path(@address.client)
+    render partial: 'form', address: @address, path: @path
   end
 
   def edit
     @address = Address.find(params[:id])
-    render 'edit', address: @address
+    @path = client_address_path(@address.client, @address)
+    render partial: 'form', address: @address, path: @path
   end
 
   def create
