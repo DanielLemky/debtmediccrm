@@ -23,7 +23,7 @@
     </li>
     <li class="text-sm py-1">
       <% if @client.family_members.any? %>✅ <% else %>⬜️ <% end %>
-      Family Members
+      <%= link_to 'Family Members', client_family_members_path(@client), class: 'py-1 text-green-500 underline' %>
     </li>
   </ul>
 </div>

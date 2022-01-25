@@ -1,0 +1,14 @@
+<%= render partial: 'layouts/breadcrumbs', locals: { breadcrumbs: @breadcrumbs } %>
+
+<h1 class="font-bold text-2xl mb-4">Family Members</h1>
+<div class="grid grid-cols-5 gap-4">
+  <div class="col-span-4">
+    <%= turbo_frame_tag 'new_family_member' do %>
+      <%= link_to 'Add Family Member', new_client_family_member_path(@client), class: "bg-white border border-slate-300 rounded py-2 px-4 mb-4 text-sm block" %>
+    <% end  %>
+    <%= turbo_frame_tag 'family_members' do %>
+      <%= render @family_members %>
+    <% end %>
+  </div>
+  <%= render partial: "clients/clients/proposal_status" %>
+</div>

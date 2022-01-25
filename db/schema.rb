@@ -110,7 +110,7 @@ ActiveRecord::Schema.define(version: 2022_01_24_172030) do
     t.bigint "client_id"
     t.string "first_name"
     t.string "last_name"
-    t.integer "relationship"
+    t.string "relationship"
     t.string "address_1"
     t.string "address_2"
     t.string "city"

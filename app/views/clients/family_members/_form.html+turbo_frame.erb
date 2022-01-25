@@ -1,0 +1,56 @@
+<%= turbo_frame_tag @family_member do %>
+  <div class="bg-white border border-slate-300 rounded py-2 px-4 mb-4">
+    <%= form_with model: @family_member, url: @path do |form| %>
+      <div class="flex gap-4">
+        <div class="my-2 grow">
+          <p><label>First name</label></p>
+          <%= form.text_field :first_name, class: "border border-slate-300 rounded w-full" %>
+        </div>
+        <div class="my-2 grow">
+          <p><label>Last name</label></p>
+          <%= form.text_field :last_name, class: "border border-slate-300 rounded w-full" %>
+        </div>
+      </div>
+      <div class="my-2">
+        <p><label>Relationship</label></p>
+        <%= form.text_field :relationship, class: "border border-slate-300 rounded w-full" %>
+      </div>
+      <div class="my-2">
+        <p><label>Address 1</label></p>
+        <%= form.text_field :address_1, class: "border border-slate-300 rounded w-full" %>
+      </div>
+      <div class="my-2">
+        <p><label>Address 2</label></p>
+        <%= form.text_field :address_2, class: "border border-slate-300 rounded w-full" %>
+      </div>
+      <div class="flex gap-4">
+        <div class="my-2 grow">
+          <p><label>City</label></p>
+          <%= form.text_field :city, class: "border border-slate-300 rounded w-full" %>
+        </div>
+        <div class="my-2">
+          <p><label>Province</label></p>
+          <%= form.text_field :province, class: "border border-slate-300 rounded w-full" %>
+        </div>
+        <div class="my-2">
+          <p><label>Postal Code</label></p>
+          <%= form.text_field :postal_code, class: "border border-slate-300 rounded w-full" %>
+        </div>
+      </div>
+      <div class="flex gap-4">
+        <div class="my-2 grow">
+          <p><label>Date of Birth</label></p>
+          <%= form.date_field :date_of_birth, class: "border border-slate-300 rounded w-full" %>
+        </div>
+        <div class="my-2 grow">
+          <p><label>Income</label></p>
+          <%= form.text_field :income, class: "border border-slate-300 rounded w-full" %>
+        </div>
+      </div>
+      <div class="mt-4 mb-2">
+        <%= form.submit "Save", class: "text-sm border bg-green-100 text-green-700 border border-green-600 rounded py-2 px-3" %>
+        <%= "Cancel" %>
+      </div>
+    <% end %>
+  </div>
+<% end %>

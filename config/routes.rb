@@ -10,6 +10,7 @@ Rails.application.routes.draw do
       resources :phone_numbers
       resources :identifications
       resources :employments
+      resources :family_members
     end
   end
 end

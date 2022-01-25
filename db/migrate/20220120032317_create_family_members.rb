@@ -4,7 +4,7 @@ class CreateFamilyMembers < ActiveRecord::Migration[7.0]
       t.belongs_to :client
       t.string :first_name
       t.string :last_name
-      t.integer :relationship
+      t.string :relationship
       t.string :address_1
       t.string :address_2
       t.string :city

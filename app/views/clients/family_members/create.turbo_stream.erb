@@ -1,0 +1,9 @@
+<%= turbo_stream.append 'family_members' do %>
+  <%= render partial: 'family_member', locals: { family_member: @family_member } %>
+<% end %>
+
+<%= turbo_stream.update 'new_family_member' do %>
+  <div class="bg-white border border-slate-300 rounded py-2 px-4 mb-4">
+    <%= link_to 'Add Family Member', new_client_family_member_path(@client) %>
+  </div>
+<% end %>

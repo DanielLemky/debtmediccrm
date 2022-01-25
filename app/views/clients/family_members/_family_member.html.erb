@@ -1,0 +1,19 @@
+<%= turbo_frame_tag family_member do %>
+  <div class="bg-white border border-slate-300 rounded mb-4 overflow-hidden">
+    <div class="flex py-2 px-3">
+      <div class="grow">
+        <p><%= family_member.first_name %> <%= family_member.last_name %></p>
+        <p><%= family_member.relationship %></p>
+        <p><%= family_member.address_1 %></p>
+        <p><%= family_member.address_2 %></p>
+        <p><%= family_member.city %>, <%= family_member.province %> <%= family_member.postal_code %></p>
+        <p><%= family_member.date_of_birth %></p>
+        <p><%= family_member.income %></p>
+      </div>
+      <div class="flex gap-2 items-start">
+        <%= link_to 'Edit', edit_client_family_member_path(family_member.client, family_member), class: "text-sm border border-slate-300 text-slate-500 rounded py-2 px-3 block" %>
+        <%= link_to "Delete", client_family_member_path(family_member.client, family_member), class: "text-sm border border-slate-300 text-slate-500 rounded py-2 px-3 block", data: { turbo_method: :delete, turbo_confirm: "Are you sure you want to delete family_member?" } %>
+      </div>
+    </div>
+  </div>
+<% end %>
