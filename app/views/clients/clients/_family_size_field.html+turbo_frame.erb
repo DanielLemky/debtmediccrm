@@ -1,0 +1,14 @@
+<%= turbo_frame_tag 'family_size' do %>
+  <%= form_with model: @client do |form| %>
+    <div class="flex gap-4 items-center">
+      <div class="grow">
+        <h2 class="font-bold text-lg mb-2">Family Size</h2>
+        <div class="flex gap-2">
+          <%= form.hidden_field :field, value: 'family_size' %>
+          <%= form.number_field :family_size, min: 1, class: "border border-slate-300 rounded" %>
+          <%= form.submit 'Save', class: 'text-sm border border-slate-300 cursor-pointer text-slate-500 rounded py-2 px-3' %>
+        </div>
+      </div>
+    </div>
+  <% end  %>
+<% end %>

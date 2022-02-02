@@ -1,0 +1,13 @@
+<%= turbo_frame_tag 'marital_status' do %>
+  <div class="flex gap-4 items-center">
+    <div class="grow">
+      <h2 class="font-bold text-lg mb-2">Marital Status</h2>
+      <div class="flex gap-2">
+        <% if @client.marital_status.present? %>
+          <p><%= @client.marital_status.humanize %></p>
+        <% end %>
+        <%= link_to 'Edit', edit_client_path(@client, field: :marital_status), class: 'text-sm border border-slate-300 text-slate-500 rounded py-2 px-3' %>
+      </div>
+    </div>
+  </div>
+<% end %>

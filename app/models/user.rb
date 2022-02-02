@@ -4,6 +4,7 @@ class User < ApplicationRecord
   devise :database_authenticatable, :registerable,
          :recoverable, :rememberable, :validatable
 
+  belongs_to :office
   has_many :proposals
 
   enum role:{ administrator: "administrator", supervisor: "supervisor", agent: "agent" }

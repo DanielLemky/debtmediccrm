@@ -1,0 +1,13 @@
+<%= turbo_frame_tag 'gender' do %>
+  <div class="flex gap-4 items-center">
+    <div class="grow">
+      <h2 class="font-bold text-lg mb-2">Gender</h2>
+      <div class="flex gap-2">
+        <% if @client.gender.present? %>
+          <p><%= @client.gender.humanize %></p>
+        <% end %>
+        <%= link_to 'Edit', edit_client_path(@client, field: :gender), class: 'text-sm border border-slate-300 text-slate-500 rounded py-2 px-3' %>
+      </div>
+    </div>
+  </div>
+<% end %>

@@ -1,7 +1,10 @@
 <div class="bg-white border border-slate-300 rounded py-2 px-4">
   <h2 class="font-bold text-lg mb-2">Proposal Status</h2>
   <ul>
-    <li class="text-sm py-1">✅ Contact Details</li>
+    <li class="text-sm py-1">
+      <% if @client.date_of_birth.present? and @client.gender.present? and @client.marital_status.present? and @client.family_size.present? %>✅ <% else %>⬜️ <% end %>
+      <%= link_to 'Details', @client, class: "py-1 text-green-500 underline" %>
+    </li>
     <li class="text-sm py-1">
       <% if @client.addresses.current.present? and @client.addresses.past.any? %>✅ <% else %>⬜️ <% end %>
       <%= link_to "Addresses", client_addresses_path(@client), class: "py-1 text-green-500 underline" %>
@@ -9,10 +12,6 @@
     <li class="text-sm py-1">
       <% if @client.phone_numbers.any? %>✅ <% else %>⬜️ <% end %>
       <%= link_to "Phone Numbers", client_phone_numbers_path(@client), class: "py-1 text-green-500 underline" %></li>
-    <li class="text-sm py-1">
-      <% if @client.personal_detail.present? %>✅ <% else %>⬜️ <% end %>
-      Personal Details
-    </li>
     <li class="text-sm py-1">
       <% if @client.identifications.drivers_license.any? and @client.identifications.sin.any? %>✅ <% else %>⬜️ <% end %>
       <%= link_to 'Identification', client_identifications_path(@client), class: "py-1 text-green-500 underline" %>

@@ -1,6 +1,6 @@
 require "test_helper"
 
-class PersonalDetailTest < ActiveSupport::TestCase
+class OfficeTest < ActiveSupport::TestCase
   # test "the truth" do
   #   assert true
   # end

@@ -1,0 +1,13 @@
+<%= turbo_frame_tag 'date_of_birth' do %>
+  <div class="flex gap-4 items-center">
+    <div class="grow">
+      <h2 class="font-bold text-lg mb-2">Date of Birth</h2>
+      <div class="flex gap-2">
+        <% if @client.date_of_birth.present? %>
+          <p><%= @client.date_of_birth %></p>
+        <% end %>
+        <%= link_to 'Edit', edit_client_path(@client, field: :date_of_birth), class: 'text-sm border border-slate-300 text-slate-500 rounded py-2 px-3' %>
+      </div>
+    </div>
+  </div>
+<% end %>

@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2022_01_24_172030) do
+ActiveRecord::Schema.define(version: 2022_02_02_041239) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -75,8 +75,16 @@ ActiveRecord::Schema.define(version: 2022_01_24_172030) do
     t.string "last_name"
     t.string "middle_initial"
     t.string "email"
+    t.date "date_of_birth"
+    t.string "gender"
+    t.string "marital_status"
+    t.integer "family_size"
+    t.bigint "user_id"
+    t.bigint "office_id"
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
+    t.index ["office_id"], name: "index_clients_on_office_id"
+    t.index ["user_id"], name: "index_clients_on_user_id"
   end
 
   create_table "employment_insurance_claims", force: :cascade do |t|
@@ -133,15 +141,20 @@ ActiveRecord::Schema.define(version: 2022_01_24_172030) do
     t.index ["client_id"], name: "index_identifications_on_client_id"
   end
 
-  create_table "personal_details", force: :cascade do |t|
+  create_table "notes", force: :cascade do |t|
+    t.bigint "user_id"
     t.bigint "client_id"
-    t.date "date_of_birth"
-    t.integer "marital_status"
-    t.integer "gender"
-    t.integer "family_size"
+    t.text "content"
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
-    t.index ["client_id"], name: "index_personal_details_on_client_id"
+    t.index ["client_id"], name: "index_notes_on_client_id"
+    t.index ["user_id"], name: "index_notes_on_user_id"
+  end
+
+  create_table "offices", force: :cascade do |t|
+    t.string "name"
+    t.datetime "created_at", precision: 6, null: false
+    t.datetime "updated_at", precision: 6, null: false
   end
 
   create_table "phone_numbers", force: :cascade do |t|
@@ -179,10 +192,12 @@ ActiveRecord::Schema.define(version: 2022_01_24_172030) do
     t.string "first_name"
     t.string "last_name"
     t.integer "role"
+    t.bigint "office_id"
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
     t.index ["confirmation_token"], name: "index_users_on_confirmation_token", unique: true
     t.index ["email"], name: "index_users_on_email", unique: true
+    t.index ["office_id"], name: "index_users_on_office_id"
     t.index ["reset_password_token"], name: "index_users_on_reset_password_token", unique: true
   end
 
